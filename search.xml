@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>hexo Error： Spawn failed 解决方案</title>
+      <link href="/2022/12/06/126/"/>
+      <url>/2022/12/06/126/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>部署出现报错<br><img src="/../prtsc/126/2.jpg"></p><h2 id="查看是否能与GitHub连接"><a href="#查看是否能与GitHub连接" class="headerlink" title="查看是否能与GitHub连接"></a>查看是否能与GitHub连接</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>成功<br><img src="/../prtsc/126/1.jpg"></p><p>若未出现图述情况，尝试为GitHub配置新的SSH<br>链接：<a href="https://blog.csdn.net/Gabriel_wei/article/details/122270707">配置SSH</a></p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>连接成功后，打开_cionfig.yml配置文件<br>修改内容为如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"></span><br><span class="line">type: git</span><br><span class="line"></span><br><span class="line">repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line"></span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure><p>最后删除博客文件夹中的.deploy_git文件夹，在博客文件夹下打开Git Bash输入命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure><p>结束后在Git Bash中执行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><p>问题解决</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Log4j2 RCE分析</title>
       <link href="/2022/12/04/124/"/>
       <url>/2022/12/04/124/</url>
@@ -21,7 +34,7 @@
       <link href="/2022/12/02/122/"/>
       <url>/2022/12/02/122/</url>
       
-        <content type="html"><![CDATA[<h2 id="✨冰哥✨嘞😊"><a href="#✨冰哥✨嘞😊" class="headerlink" title="✨冰哥✨嘞😊"></a>✨冰哥✨嘞😊</h2><p><strong>在寒风的冬日，封校的日子里，还是冰哥暖我心嘞😘</strong></p><p><img src="/../picture/1.jpg"></p><p><img src="/../picture/2.jpg"></p><p><img src="/../picture/3.jpg"></p><p><img src="/../picture/4.jpg"></p><p><img src="/../picture/5.jpg"></p><p><img src="/../picture/6.jpg"></p><h1 id="爱你哟😘"><a href="#爱你哟😘" class="headerlink" title="爱你哟😘"></a><em><strong>爱你哟</strong></em>😘</h1>]]></content>
+        <content type="html"><![CDATA[<h2 id="✨冰哥✨嘞😊"><a href="#✨冰哥✨嘞😊" class="headerlink" title="✨冰哥✨嘞😊"></a>✨冰哥✨嘞😊</h2><p><strong>在寒风的冬日，封校的日子里，还是冰哥暖我心嘞😘</strong></p><p><img src="/../picture/122/1.jpg"></p><p><img src="/../picture/122/2.jpg"></p><p><img src="/../picture/122/3.jpg"></p><p><img src="/../picture/122/4.jpg"></p><p><img src="/../picture/122/5.jpg"></p><p><img src="/../picture/122/6.jpg"></p><h1 id="爱你哟😘"><a href="#爱你哟😘" class="headerlink" title="爱你哟😘"></a><em><strong>爱你哟</strong></em>😘</h1>]]></content>
       
       
       
@@ -59,9 +72,9 @@
     
     
     <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -81,22 +94,22 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[var now = new Date; function createtime () {     now.setTime(now.getTime() + 1e3);     var o = new Date("11/30/2022 23:00:00"), r = (now - o) / 1e3 / 60 / 60 / 24, i = Math.floor(r), n = (now - o) / 1e3 / 60 / 60 - 24 * i, s = Math.floor(n);     1 == String(s).length && (s = "0" + s);     var l = (now - o) / 1e3 / 60 - 1440 * i - 60 * s, g = Math.floor(l);     1 == String(g).length && (g = "0" + g);     var d = (now - o) / 1e3 - 86400 * i - 3600 * s - 60 * g, b = Math.round(d);     1 == String(b).length && (b = "0" + b);     let c = "";     c = s < 18 && s >= 9 ? `<img class='boardsign' src='https://img.shields.io/badge/F%E5%B0%8F%E5%B1%8B-%E4%B8%8A%E7%8F%AD%E6%91%B8%E9%B1%BC%E4%B8%AD-1ade23?style=social&logo=Buy%20Me%20A%20Coffee' title='距离月入25k也就还差一个大佬带我~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ ` : `<img class='boardsign' src='https://img.shields.io/badge/F小屋-打烊休息啦-6adea8?style=social&logo=coffeescript' title='下班了就该开开心心的玩耍，嘿嘿~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ `, document.getElementById("workboard") && (document.getElementById("workboard").innerHTML = c) } setInterval((() => { createtime() }), 1e3);]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title></title>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
       
-        <content type="html"><![CDATA[<div id="aplayer-oSEOhviA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="4895239160" data-server="netease" data-type="playlist" data-mode="random" data-autoplay="false" data-listmaxheight="340px" data-preload="auto" data-theme="#e3f2f5" data-volume="0.4" mutex="true"></div>]]></content>
+        <content type="html"><![CDATA[/* 页脚与头图透明 */#footer {  background: transparent !important;}#page-header {  background: transparent !important;}/* 白天模式遮罩透明 */#footer::before {  background: transparent !important;}#page-header::before {  background: transparent !important;}/* 夜间模式遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}]]></content>
       
     </entry>
     
@@ -115,17 +128,6 @@
     
     <entry>
       <title></title>
-      <link href="/css/custom.css"/>
-      <url>/css/custom.css</url>
-      
-        <content type="html"><![CDATA[/* 页脚与头图透明 */#footer {  background: transparent !important;}#page-header {  background: transparent !important;}/* 白天模式遮罩透明 */#footer::before {  background: transparent !important;}#page-header::before {  background: transparent !important;}/* 夜间模式遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/js/universe.js"/>
       <url>/js/universe.js</url>
       
@@ -136,11 +138,22 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
-        <content type="html"><![CDATA[var now = new Date; function createtime () {     now.setTime(now.getTime() + 1e3);     var o = new Date("11/30/2022 23:00:00"), r = (now - o) / 1e3 / 60 / 60 / 24, i = Math.floor(r), n = (now - o) / 1e3 / 60 / 60 - 24 * i, s = Math.floor(n);     1 == String(s).length && (s = "0" + s);     var l = (now - o) / 1e3 / 60 - 1440 * i - 60 * s, g = Math.floor(l);     1 == String(g).length && (g = "0" + g);     var d = (now - o) / 1e3 - 86400 * i - 3600 * s - 60 * g, b = Math.round(d);     1 == String(b).length && (b = "0" + b);     let c = "";     c = s < 18 && s >= 9 ? `<img class='boardsign' src='https://img.shields.io/badge/F%E5%B0%8F%E5%B1%8B-%E4%B8%8A%E7%8F%AD%E6%91%B8%E9%B1%BC%E4%B8%AD-1ade23?style=social&logo=Buy%20Me%20A%20Coffee' title='距离月入25k也就还差一个大佬带我~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ ` : `<img class='boardsign' src='https://img.shields.io/badge/F小屋-打烊休息啦-6adea8?style=social&logo=coffeescript' title='下班了就该开开心心的玩耍，嘿嘿~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ `, document.getElementById("workboard") && (document.getElementById("workboard").innerHTML = c) } setInterval((() => { createtime() }), 1e3);]]></content>
+        <content type="html"><![CDATA[<div id="aplayer-oSEOhviA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="4895239160" data-server="netease" data-type="playlist" data-mode="random" data-autoplay="false" data-listmaxheight="340px" data-preload="auto" data-theme="#e3f2f5" data-volume="0.4" mutex="true"></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
