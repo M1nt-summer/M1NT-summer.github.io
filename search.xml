@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Kali E:Unable to Correct Problems ‘You have Held Broken Packages’</title>
+      <link href="/2022/12/14/1214f/"/>
+      <url>/2022/12/14/1214f/</url>
+      
+        <content type="html"><![CDATA[<h2 id="情景描述"><a href="#情景描述" class="headerlink" title="情景描述"></a>情景描述</h2><p>kali执行apt-get install ……时<br>出现上述报错</p><h2 id="安装aptitude"><a href="#安装aptitude" class="headerlink" title="安装aptitude"></a>安装aptitude</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install aptitude</span><br></pre></td></tr></table></figure><h2 id="使用aptitude"><a href="#使用aptitude" class="headerlink" title="使用aptitude"></a>使用aptitude</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例:</span><br><span class="line">aptitude install yum</span><br></pre></td></tr></table></figure><p>这个工具是在你无法用apt-get安装工具时使用<br>它会在你执行时给出解决方案<br><img src="/./../prtsc/1214/1.jpg"><br>只能进行尝试方案<br>选择方案就用y,要尝试其它方案就n,工具会给出其它解决方案</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Kali E:Unable to locate package</title>
       <link href="/2022/12/14/1214/"/>
       <url>/2022/12/14/1214/</url>
@@ -118,6 +131,17 @@
     
     
     <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/js/runtime.js"/>
       <url>/js/runtime.js</url>
@@ -140,9 +164,9 @@
     
     
     <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -151,9 +175,9 @@
     
     
     <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -167,17 +191,6 @@
       <url>/music/index.html</url>
       
         <content type="html"><![CDATA[<div id="aplayer-oSEOhviA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="4895239160" data-server="netease" data-type="playlist" data-mode="random" data-autoplay="false" data-listmaxheight="340px" data-preload="auto" data-theme="#e3f2f5" data-volume="0.4" mutex="true"></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
