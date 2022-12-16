@@ -4,24 +4,11 @@
   
     
     <entry>
-      <title>Kali E:Unable to Correct Problems ‘You have Held Broken Packages’</title>
-      <link href="/2022/12/14/1214f/"/>
-      <url>/2022/12/14/1214f/</url>
-      
-        <content type="html"><![CDATA[<p>有问题，还在研究！！！</p><h2 id="情景描述"><a href="#情景描述" class="headerlink" title="情景描述"></a>情景描述</h2><p>kali执行apt-get install ……时<br>出现上述报错</p><h2 id="安装aptitude"><a href="#安装aptitude" class="headerlink" title="安装aptitude"></a>安装aptitude</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install aptitude</span><br></pre></td></tr></table></figure><h2 id="使用aptitude"><a href="#使用aptitude" class="headerlink" title="使用aptitude"></a>使用aptitude</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例:</span><br><span class="line">aptitude install yum</span><br></pre></td></tr></table></figure><p>这个工具是在你无法用apt-get安装工具时使用<br>它会在你执行时给出解决方案<br><img src="/./../prtsc/1214/1.jpg"><br>只能进行尝试方案<br>选择方案就用’y’,要尝试其它方案就’n’,工具会给出其它解决方案<br>然后会询问是否采用已选方案<br><img src="/../prtsc/1214/2.jpg"><br>‘y’,回车,等待执行完成,所需工具大概率安装完成</p><p>文件删除 <a href="https://blog.csdn.net/LEON1741/article/details/85114318"></a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Kali E:Unable to locate package</title>
       <link href="/2022/12/14/1214/"/>
       <url>/2022/12/14/1214/</url>
       
-        <content type="html"><![CDATA[<p>解决无法安装例如rpm,yum等安装包</p><h2 id="打开sources-list文件"><a href="#打开sources-list文件" class="headerlink" title="打开sources.list文件"></a>打开sources.list文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br><span class="line">*我喜欢使用sudo gedit /etc/apt/sources.list*</span><br></pre></td></tr></table></figure><h2 id="添加内容-不是替换"><a href="#添加内容-不是替换" class="headerlink" title="添加内容(不是替换)"></a>添加内容(不是替换)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb http://http.kali.org/kali kali-rolling main contrib non-free</span><br><span class="line">deb http://http.kali.org/kali sana main non-free contrib</span><br><span class="line">deb http://security.kali.org/kali-security sana/updates main contrib non-free</span><br><span class="line">deb http://old.kali.org/kali moto main non-free contrib</span><br></pre></td></tr></table></figure><h2 id="保存，退出，更新"><a href="#保存，退出，更新" class="headerlink" title="保存，退出，更新"></a>保存，退出，更新</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>解决无法安装rpm安装包</p><h2 id="打开sources-list文件"><a href="#打开sources-list文件" class="headerlink" title="打开sources.list文件"></a>打开sources.list文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br><span class="line">gedit也是个不错的编译器</span><br></pre></td></tr></table></figure><h2 id="添加内容-不是替换"><a href="#添加内容-不是替换" class="headerlink" title="添加内容(不是替换)"></a>添加内容(不是替换)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb http://http.kali.org/kali kali-rolling main contrib non-free</span><br><span class="line">deb http://http.kali.org/kali sana main non-free contrib</span><br><span class="line">deb http://security.kali.org/kali-security sana/updates main contrib non-free</span><br><span class="line">deb http://old.kali.org/kali moto main non-free contrib</span><br></pre></td></tr></table></figure><h2 id="保存，退出，更新"><a href="#保存，退出，更新" class="headerlink" title="保存，退出，更新"></a>保存，退出，更新</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
@@ -120,6 +107,39 @@
     
     
     <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[var now = new Date; function createtime () {     now.setTime(now.getTime() + 1e3);     var o = new Date("11/30/2022 23:00:00"), r = (now - o) / 1e3 / 60 / 60 / 24, i = Math.floor(r), n = (now - o) / 1e3 / 60 / 60 - 24 * i, s = Math.floor(n);     1 == String(s).length && (s = "0" + s);     var l = (now - o) / 1e3 / 60 - 1440 * i - 60 * s, g = Math.floor(l);     1 == String(g).length && (g = "0" + g);     var d = (now - o) / 1e3 - 86400 * i - 3600 * s - 60 * g, b = Math.round(d);     1 == String(b).length && (b = "0" + b);     let c = "";     c = s < 18 && s >= 9 ? `<img class='boardsign' src='https://img.shields.io/badge/F%E5%B0%8F%E5%B1%8B-%E4%B8%8A%E7%8F%AD%E6%91%B8%E9%B1%BC%E4%B8%AD-1ade23?style=social&logo=Buy%20Me%20A%20Coffee' title='距离月入25k也就还差一个大佬带我~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ ` : `<img class='boardsign' src='https://img.shields.io/badge/F小屋-打烊休息啦-6adea8?style=social&logo=coffeescript' title='下班了就该开开心心的玩耍，嘿嘿~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ `, document.getElementById("workboard") && (document.getElementById("workboard").innerHTML = c) } setInterval((() => { createtime() }), 1e3);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/js/universe.js"/>
       <url>/js/universe.js</url>
@@ -134,28 +154,6 @@
       <title>友链</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -180,17 +178,6 @@
       <url>/music/index.html</url>
       
         <content type="html"><![CDATA[<div id="aplayer-oSEOhviA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="4895239160" data-server="netease" data-type="playlist" data-mode="random" data-autoplay="false" data-listmaxheight="340px" data-preload="auto" data-theme="#e3f2f5" data-volume="0.4" mutex="true"></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
-      
-        <content type="html"><![CDATA[var now = new Date; function createtime () {     now.setTime(now.getTime() + 1e3);     var o = new Date("11/30/2022 23:00:00"), r = (now - o) / 1e3 / 60 / 60 / 24, i = Math.floor(r), n = (now - o) / 1e3 / 60 / 60 - 24 * i, s = Math.floor(n);     1 == String(s).length && (s = "0" + s);     var l = (now - o) / 1e3 / 60 - 1440 * i - 60 * s, g = Math.floor(l);     1 == String(g).length && (g = "0" + g);     var d = (now - o) / 1e3 - 86400 * i - 3600 * s - 60 * g, b = Math.round(d);     1 == String(b).length && (b = "0" + b);     let c = "";     c = s < 18 && s >= 9 ? `<img class='boardsign' src='https://img.shields.io/badge/F%E5%B0%8F%E5%B1%8B-%E4%B8%8A%E7%8F%AD%E6%91%B8%E9%B1%BC%E4%B8%AD-1ade23?style=social&logo=Buy%20Me%20A%20Coffee' title='距离月入25k也就还差一个大佬带我~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ ` : `<img class='boardsign' src='https://img.shields.io/badge/F小屋-打烊休息啦-6adea8?style=social&logo=coffeescript' title='下班了就该开开心心的玩耍，嘿嘿~'><br> 本站已运行了 ${i} 天 ${s} 小时 ${g} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> ✨为了再次看见你的笑脸✨ <br> ✨再びあなたの笑顔を見るために✨ `, document.getElementById("workboard") && (document.getElementById("workboard").innerHTML = c) } setInterval((() => { createtime() }), 1e3);]]></content>
       
     </entry>
     
